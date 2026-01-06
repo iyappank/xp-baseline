@@ -1,0 +1,12 @@
+// src/components/ProductCard.js
+import React from "react";
+
+const ProductCard = ({ product }) => (
+  <div className="product-card">
+    <h3>{product.name}</h3>
+    <p>{product.description}</p>
+    <strong>${product.price}</strong>
+  </div>
+);
+
+export default ProductCard;
