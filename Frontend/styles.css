@@ -1,0 +1,64 @@
+/* src/styles.css */
+
+/* Layout */
+nav {
+  background: #282c34;
+  padding: 1rem;
+}
+nav a {
+  color: #fff;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+main {
+  padding: 2rem;
+}
+
+/* Banner */
+.banner {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.banner img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.banner h1 {
+  margin: 1rem 0 0.5rem;
+}
+.banner p {
+  color: #555;
+}
+
+/* Product Card */
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+  width: 220px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.product-card h3 {
+  margin: 0 0 0.5rem;
+}
+.product-card p {
+  font-size: 0.9rem;
+  color: #666;
+}
+.product-card strong {
+  display: block;
+  margin-top: 0.5rem;
+  color: #000;
+}
+
+/* Product List */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
