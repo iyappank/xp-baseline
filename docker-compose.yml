@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   frontend:
-    build: ./frontend   # React app Dockerfile
+    build: ./Frontend   # React app Dockerfile
     container_name: frontend
     ports:
       - "3000:80"       # Expose React build via Nginx
@@ -11,10 +11,10 @@ services:
       - cms
     environment:
       - REACT_APP_API_URL=http://localhost:8080/products
-      - REACT_APP_CMS_URL=http://localhost:1337/home
+      - REACT_APP_CMS_URL=http://localhost/home
 
   backend:
-    build: ./backend    # Spring Boot Dockerfile
+    build: ./Backend    # Spring Boot Dockerfile
     container_name: backend
     ports:
       - "8080:8080"
@@ -23,13 +23,10 @@ services:
       - SERVER_PORT=8080
 
   cms:
-    image: strapi/strapi:latest
+    build: ./CMS    # cms Dockerfile
     container_name: cms
     ports:
-      - "1337:1337"
+      - "80:80"
     volumes:
       - ./cms-data:/srv/app
-    environment:
-      - DATABASE_CLIENT=sqlite
-      - DATABASE_FILENAME=/srv/app/data.db
-      - NODE_ENV=development
+   
