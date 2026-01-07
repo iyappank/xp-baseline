@@ -69,6 +69,25 @@ Minimalist Spring Boot microservice that serves an in-memory list of products vi
 * Swagger UI: http://localhost:8080/swagger-ui.html
 * OpenAPI JSON: http://localhost:8080/v3/api-docs
 
+# 3. Containerization
+- Single command starts the full stack.
+- Clear separation of services.
+- Reasonable ports: 3000 (frontend), 8080 (backend), 1337 (CMS).
 
+## Directory Layout 
+<img width="669" height="165" alt="image" src="https://github.com/user-attachments/assets/cc17eef6-2cb5-4474-bfbd-97d4541af233" />
+
+## How It Works
+- Frontend: React app built and served via Nginx on port 3000.
+- Backend: Spring Boot API exposed on port 8080.
+- CMS: Strapi running on port 1337, with persistent volume cms-data.
+ 
+Environment variables (REACT_APP_API_URL, REACT_APP_CMS_URL) ensure the frontend knows where to fetch data
+## Run the stack
+docker-compose up --build
+
+- Frontend → http://localhost:3000
+- Backend → http://localhost:8080/products
+- CMS → http://localhost:1337
 
 
