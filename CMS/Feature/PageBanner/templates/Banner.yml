@@ -1,0 +1,15 @@
+# /src/Feature/PageBanner/templates/Banner.yml
+ID: {GUID-BANNER-TEMPLATE}
+TemplateName: Banner
+Parent: /sitecore/templates/Feature/PageBanner
+Fields:
+  - Name: Heading
+    Type: Single-Line Text
+  - Name: Subheading
+    Type: Single-Line Text
+  - Name: Image
+    Type: Image
+  - Name: CTA
+    Type: General Link
+  - Name: BackgroundColor
+    Type: Single-Line Text

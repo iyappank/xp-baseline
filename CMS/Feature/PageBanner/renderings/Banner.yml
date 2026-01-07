@@ -1,0 +1,8 @@
+# /src/Feature/PageBanner/renderings/Banner.yml
+ID: {GUID-BANNER-RENDERING}
+RenderingName: Banner
+DatasourceTemplate: /sitecore/templates/Feature/PageBanner/Banner
+PlaceholderKey: banner
+ComponentName: Banner
+Caching:
+  Enabled: true

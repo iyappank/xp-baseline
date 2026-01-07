@@ -1,4 +1,3 @@
-// src/api/cmsApi.js
 import axios from "axios";
 import { toast } from "react-toastify";
 

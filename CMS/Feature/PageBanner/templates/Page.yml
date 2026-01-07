@@ -1,0 +1,14 @@
+# /src/Feature/PageBanner/templates/Page.yml
+ID: {GUID-PAGE-TEMPLATE}
+TemplateName: Page
+Parent: /sitecore/templates/Feature/PageBanner
+Fields:
+  - Name: Title
+    Type: Single-Line Text
+  - Name: MetaDescription
+    Type: Rich Text
+  - Name: Body
+    Type: Rich Text
+  - Name: Banner
+    Type: Reference
+    Source: /sitecore/templates/Feature/PageBanner/Banner

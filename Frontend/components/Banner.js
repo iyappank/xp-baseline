@@ -1,4 +1,3 @@
-// src/components/Banner.js
 import React from "react";
 
 const Banner = ({ title, description, image }) => (
