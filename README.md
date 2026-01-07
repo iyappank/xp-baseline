@@ -1,5 +1,9 @@
-# Minimal Experience Platform 
+# Experience Platform - Pilot version
 Design and implement a modern frontend experience backed by a headless CMS and a microservice-based backend
+
+# Application Architecture
+<img width="985" height="414" alt="image" src="https://github.com/user-attachments/assets/8cfa5700-24dc-48d9-9f29-5c76f6dd5c30" />
+
 
 # 1. Frontend (SPA)
   Build a Single Page Application (SPA) using React JS:
@@ -18,16 +22,16 @@ Design and implement a modern frontend experience backed by a headless CMS and a
 - Deploy to the npx server
 
 ## Design Considerations
-* Separation of concerns: API calls isolated in /api.
-* Reusable components: Banner, ProductCard, Layout.
-* Routing: Centralized in routes.js.
-* Maintainability: Clear folder structure, easy to extend.
-* Error handling: Add try/catch in API calls for resilience.
-* Styling: Use CSS modules or styled-components for scoped styles.
-* Error Boundary ensures the app doesn’t crash entirely if a component fails.
-* Skeletons provide immediate feedback, reducing perceived wait time.
-* Fallback messages (like “Error loading content”) keep users informed.
-* Toast notifications appear globally in the top-right corner when API errors occur.
+* <b>Separation of concerns</b>: API calls isolated in /api.
+* <b>Reusable components</b>: Banner, ProductCard, Layout.
+* <b>Routing</b>: Centralized in routes.js.
+* <b>Maintainability</b>: Clear folder structure, easy to extend.
+* <b>Error handling</b>: Add try/catch in API calls for resilience.
+* <b>Styling</b>: Use CSS modules or styled-components for scoped styles.
+* <b>Error Boundary</b> ensures the app doesn’t crash entirely if a component fails.
+* <b>Skeletons</b> provide immediate feedback, reducing perceived wait time.
+* <b>Fallback</b> messages (like “Error loading content”) keep users informed.
+* <b>Toast notifications</b> appear globally in the top-right corner when API errors occur.
 
 ## Project Structure 
 
