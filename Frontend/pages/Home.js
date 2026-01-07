@@ -1,4 +1,3 @@
-// src/pages/Home.js
 import React, { useEffect, useState } from "react";
 import { fetchCMSContent } from "../api/cmsApi";
 import Banner from "../components/Banner";

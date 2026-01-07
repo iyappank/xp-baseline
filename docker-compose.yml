@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: ./Frontend   # React app Dockerfile
+    container_name: frontend
+    ports:
+      - "3000:80"       # Expose React build via Nginx
+    depends_on:
+      - backend
+      - cms
+    environment:
+      - REACT_APP_API_URL=http://localhost:8080/products
+      - REACT_APP_CMS_URL=http://localhost/home
+
+  backend:
+    build: ./Backend    # Spring Boot Dockerfile
+    container_name: backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SERVER_PORT=8080
+
+  cms:
+    build: ./CMS    # cms Dockerfile
+    container_name: cms
+    ports:
+      - "80:80"
+    volumes:
+      - ./cms-data:/srv/app
+   

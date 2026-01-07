@@ -1,0 +1,5 @@
+# /src/Feature/PageBanner/placeholders/banner.yml
+ID: {GUID-BANNER-PLACEHOLDER}
+PlaceholderKey: banner
+AllowedControls:
+  - /sitecore/layout/Renderings/Feature/PageBanner/Banner

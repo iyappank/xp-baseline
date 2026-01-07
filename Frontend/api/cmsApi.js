@@ -1,12 +1,11 @@
-// src/api/cmsApi.js
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const CMS_URL = "http://localhost:1337";
+const CMS_API_URL = process.env.REACT_APP_CMS_URL ? process.env.REACT_APP_CMS_URL : "http://localhost:1337";
 
 export const fetchCMSContent = async () => {
   try {
-    const response = await axios.get(`${CMS_URL}/home`);
+    const response = await axios.get(`${CMS_API_URL}/home`);
     return response.data;
   } catch (error) {
     toast.error("Failed to load CMS content");
