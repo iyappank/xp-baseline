@@ -4,6 +4,14 @@ Design and implement a modern frontend experience backed by a headless CMS and a
 # Application Architecture
 <img width="985" height="414" alt="image" src="https://github.com/user-attachments/assets/8cfa5700-24dc-48d9-9f29-5c76f6dd5c30" />
 
+   1. <b>Frontend SPA</b> - Node Js, React Js , NPX web server hosted in docker container 
+   2. <b>Backend API Microservices</b> - JAVA Sprint Boot Services , hosted in docker containers with autoscaling.
+   3. <b>Redis Cache</b> - Static data being cached into Redis Cache.
+   4. <b>CMS - Sitecore XP JSS </b> Headless Services  APIs enables Content as Service, hosted in Docker containers with autoscaling as part of Sitecore Containers hosted platform.  
+   5. <b>Azure CDN </b> Sitecore Headless API service responses are cached on Azure CDN </b> for improving performance on content delivery  
+   6. <b>Azure APIM </b> Backend API as well as CDN URLs are added as Backend services in Azure API Management - It enables API Gateway with additonal security , scalability and performance.
+   7. Frontend SPA application connects Azure APIM APIs. APIM APIs routes the traffic to Backend API.
+      
 
 # 1. Frontend (SPA)
   Build a Single Page Application (SPA) using React JS:
@@ -21,7 +29,7 @@ Design and implement a modern frontend experience backed by a headless CMS and a
 - Build with npm run build
 - Deploy to the npx server
 
-## Design Considerations
+## Frontend Design Considerations
 * <b>Separation of concerns</b>: API calls isolated in /api.
 * <b>Reusable components</b>: Banner, ProductCard, Layout.
 * <b>Routing</b>: Centralized in routes.js.
@@ -35,7 +43,8 @@ Design and implement a modern frontend experience backed by a headless CMS and a
 
 ## Project Structure 
 
-<img width="341" height="562" alt="image" src="https://github.com/user-attachments/assets/35ae107d-62d0-460d-bd94-4873a9845330" />
+<img width="293" height="425" alt="image" src="https://github.com/user-attachments/assets/847b0f41-c82e-49c3-a334-16e2d279051b" />
+
 
 ## Dependencies 
 npm install react-router-dom axios react-toastify react-loading-skeleton
@@ -43,7 +52,7 @@ npm install react-router-dom axios react-toastify react-loading-skeleton
 ## Run Locally
 npm run dev
 
-Open browser at the URL shown - http://localhost:5173.
+Open browser at the URL shown - http://localhost:3000.
 
 ## Build for Production
 npm run build
@@ -53,13 +62,68 @@ This generates a dist/folder with optimized static files.
 To preview:
 npm run preview
 
-# 2. Backend (SPA)
+# 2. Sitecore Headless CMS - Content Model
+
+- <b>Page template</b> defines metadata and placeholders.
+- <b>Banner template</b> defines reusable fields (Heading, Image, CTA).
+- <b>Rendering definition</b> ties Banner to JSS.
+- <b>Placeholder settings allow</b> authors to drag-and-drop Banner into Pages.
+- <b>JSS Layout Service</b> exposes content for headless consumption.
+
+## Page Template
+
+Defines the structure of a page item.
+- Template Name: Page
+- Fields:
+- Title (Single-Line Text)
+- MetaDescription (Rich Text)
+- Banner (Datasource reference to Banner component)
+- Body (Rich Text or placeholder for child components)
+
+## Banner Component Template
+
+Reusable component for hero/banner sections.
+- Template Name: Banner
+- Fields:
+- Title (Single-Line Text)
+- Description (Single-Line Text)
+- Image (Image field)
+- CTA (General Link field)
+
+## Rendering Definition
+
+Defines how the Banner component is rendered in JSS.
+- Rendering Item: /sitecore/layout/Renderings/Project/MySite/Banner
+- Datasource Template: Banner
+- Placeholder Key: banner
+- Caching: Enabled (optional)
+
+## Placeholder Settings
+
+Controls which components can be dropped into placeholders.
+- Placeholder Settings Item: /sitecore/layout/Placeholder Settings/banner
+- Placeholder Key: banner
+- Allowed Controls: Banner rendering (and optionally Hero, Carousel, etc.)
+This ensures authors can drag-and-drop Banner components into the banner placeholder in Experience Editor/Horizon.
+
+## Sitecore Feature Component 
+
+<img width="251" height="333" alt="image" src="https://github.com/user-attachments/assets/6b283d4c-8798-4755-952d-c7f160bee7aa" />
+
+
+## Exposing Content via JSS API
+
+Layout Service (REST) Endpoint:
+https://<sitecore-host>/sitecore/api/layout/render/jss?item=/home&sc_lang=en
+
+# 3. Backend (SPA)
 
 Minimalist Spring Boot microservice that serves an in-memory list of products via GET /products, includes OpenAPI/Swagger, error handling, and basic tests.
 
 ## Project structure
 
-<img width="341" height="562" alt="image" src="https://github.com/user-attachments/assets/ab97ce29-7952-4e18-b819-a2ce11905269" />
+<img width="262" height="481" alt="image" src="https://github.com/user-attachments/assets/bfdf92b0-f37f-4ef5-81fe-095c246ce102" />
+
 
 ## How to run
 
@@ -69,7 +133,7 @@ Minimalist Spring Boot microservice that serves an in-memory list of products vi
 * Swagger UI: http://localhost:8080/swagger-ui.html
 * OpenAPI JSON: http://localhost:8080/v3/api-docs
 
-# 3. Containerization
+# 4. Containerization
 - Single command starts the full stack.
 - Clear separation of services.
 - Reasonable ports: 3000 (frontend), 8080 (backend), 1337 (CMS).
