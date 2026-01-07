@@ -15,7 +15,7 @@ Design and implement a modern frontend experience backed by a headless CMS and a
 - Connect to backend & CMS
 - Run locally with npm run dev
 - Build with npm run build
-- Deploy to Netlify/Vercel or your server
+- Deploy to the npx server
 
 ## Design Considerations
 * Separation of concerns: API calls isolated in /api.
@@ -31,28 +31,15 @@ Design and implement a modern frontend experience backed by a headless CMS and a
 
 ## Project Structure 
 
-─ src/
-  ─ api/
-     ─ cmsApi.js
-     ─ productApi.js
-  ─ components/
-      ─ Banner.js
-   ─ Layout.js
-     ─ ProductCard.js
-  ─ pages/
-    ─ Home.js
-    ─ Products.js
-─ App.js
-─ index.js
-─ routes.js
-─ package.json
+<img width="341" height="562" alt="image" src="https://github.com/user-attachments/assets/35ae107d-62d0-460d-bd94-4873a9845330" />
 
 ## Dependencies 
 npm install react-router-dom axios react-toastify react-loading-skeleton
 
 ## Run Locally
 npm run dev
-Open browser at the URL shown (usually http://localhost:5173 for Vite).
+
+Open browser at the URL shown - http://localhost:5173.
 
 ## Build for Production
 npm run build
@@ -68,30 +55,7 @@ Minimalist Spring Boot microservice that serves an in-memory list of products vi
 
 ## Project structure
 
- backend/
-  ─ pom.xml
-    ─ main/
-       ─ java/com/products/
-          ─ ProductsApiApplication.java
-       ─ config/
-          ─ OpenApiConfig.java
-  ─ controller/
-          ─ ProductController.java
-    ─ exception/ 
-          ─ GlobalExceptionHandler.java
-          ─ ApiError.java
-    ─ model/
-          ─ Product.java
-    ─ repository/
-          ─ ProductRepository.java
-    ─ service/
-          ─ ProductService.java
-    ─ resources/
-          ─ application.yml
-    ─ test/
-          ─ java/com/example/products/
-                ─ ProductControllerTest.java
-                ─ ProductServiceTest.java
+<img width="341" height="562" alt="image" src="https://github.com/user-attachments/assets/ab97ce29-7952-4e18-b819-a2ce11905269" />
 
 ## How to run
 
