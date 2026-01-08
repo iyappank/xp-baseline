@@ -1,6 +1,6 @@
-package com.example.products;
+package com.products;
 
-import com.example.products.ProductsApiApplication;
+import com.products.ProductsApiApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

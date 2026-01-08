@@ -1,8 +1,8 @@
-package com.example.products;
+package com.products;
 
-import com.example.products.model.Product;
-import com.example.products.repository.ProductRepository;
-import com.example.products.service.ProductService;
+import com.products.model.Product;
+import com.products.repository.ProductRepository;
+import com.products.service.ProductService;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
