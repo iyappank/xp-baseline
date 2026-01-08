@@ -120,6 +120,23 @@ https://<<sitecore-host>>/sitecore/api/layout/render/jss?item=/home&sc_lang=en
 
 Minimalist Spring Boot microservice that serves an in-memory list of products via GET /products, includes OpenAPI/Swagger, error handling, and basic tests.
 
+## Pre-requistics 
+
+1. Visual Studio Code
+2. Install VS Extension - **Extension Pack for Java**
+3. Install VS Extension - **Maven for Java**
+4. Download JDK - https://www.oracle.com/in/java/technologies/downloads/#java17-windows
+5. Extract and Copy to C:\Program Files\jdk-17.0.17
+6. Download Maven Binary Zip from https://maven.apache.org/download.cgi#CurrentMaven
+7. Extract and Copy to C:\Program Files\apache-maven-3.9.12
+8. Add Two System Environment Variables as follows
+   
+   <img width="607" height="142" alt="image" src="https://github.com/user-attachments/assets/cb35a7e9-6dd0-47a4-ab53-bde97c512d18" />
+   
+10. Edit Path variable and include JDK and Maven bin folders.
+    
+   <img width="512" height="361" alt="image" src="https://github.com/user-attachments/assets/f9d2464b-f7a3-4c51-bf00-1b36a09fdf55" />
+
 ## Project structure
 
 <img width="262" height="481" alt="image" src="https://github.com/user-attachments/assets/bfdf92b0-f37f-4ef5-81fe-095c246ce102" />
