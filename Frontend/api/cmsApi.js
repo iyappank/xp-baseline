@@ -1,10 +1,11 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const CMS_API_URL = import.meta.env.REACT_APP_CMS_URL ? import.meta.env.REACT_APP_CMS_URL : "http://localhost:1337";
+const CMS_API_URL = import.meta.env.REACT_APP_CMS_URL ? import.meta.env.REACT_APP_CMS_URL : "http://localhost";
 
 export const fetchCMSContent = async () => {
   try {
+    console.log(CMS_API_URL)
     const response = await axios.get(`${CMS_API_URL}/home`);
     return response.data;
   } catch (error) {
