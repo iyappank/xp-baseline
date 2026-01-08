@@ -46,7 +46,7 @@ Design and implement a modern frontend experience backed by a headless CMS and a
 
 ## Dependencies 
 * cd Frontend
-* npm install react-router-dom axios react-toastify react-loading-skeleton
+* npm install 
 
 ## Run Locally
 * cd Frontend
