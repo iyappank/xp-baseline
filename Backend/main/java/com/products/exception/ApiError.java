@@ -1,4 +1,4 @@
-package com.example.products.exception;
+package com.products.exception;
 
 import java.time.OffsetDateTime;
 

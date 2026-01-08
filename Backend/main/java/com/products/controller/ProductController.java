@@ -1,7 +1,7 @@
-package com.example.products.controller;
+package com.products.controller;
 
-import com.example.products.model.Product;
-import com.example.products.service.ProductService;
+import com.products.model.Product;
+import com.products.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.http.MediaType;

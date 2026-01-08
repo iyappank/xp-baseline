@@ -10,8 +10,9 @@
   <name>products-api</name>
   <description>In-memory Products API</description>
   <properties>
-    <java.version>21</java.version>
+    <java.version>17</java.version>
     <spring.boot.version>3.3.2</spring.boot.version>
+    <project.basedir>3.3.2</project.basedir>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -54,11 +55,38 @@
   </dependencies>
 
   <build>
+    <sourceDirectory>main/java</sourceDirectory>
+    <testResources>
+        <testResource>
+                <!-- Specify the custom directory path -->
+                <directory>main/test</directory>
+                
+                <!-- Optional: Include/Exclude specific file patterns -->
+                <!-- 
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                </includes>
+                <excludes>
+                    <exclude>**/temp/*</exclude>
+                </excludes>
+                -->
+       </testResource>
+            <!-- You can add multiple testResource blocks if you have more than one custom directory -->
+    </testResources>
+    <resources>
+       <resource>
+          <directory>main/resources</directory>
+        </resource>
+    </resources>
     <plugins>
       <!-- Spring Boot -->
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+           <mainClass>com.products.ProductsApiApplication</mainClass>
+        </configuration>
       </plugin>
       <!-- Compiler -->
       <plugin>
