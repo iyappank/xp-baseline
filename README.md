@@ -42,20 +42,21 @@ Design and implement a modern frontend experience backed by a headless CMS and a
 * <b>Toast notifications</b> appear globally in the top-right corner when API errors occur.
 
 ## Project Structure 
-
-<img width="293" height="425" alt="image" src="https://github.com/user-attachments/assets/847b0f41-c82e-49c3-a334-16e2d279051b" />
-
+<img width="312" height="485" alt="image" src="https://github.com/user-attachments/assets/a0e54044-f3b2-422b-b4f5-1cd5354f3766" />
 
 ## Dependencies 
-npm install react-router-dom axios react-toastify react-loading-skeleton
+* cd Frontend
+* npm install react-router-dom axios react-toastify react-loading-skeleton
 
 ## Run Locally
-npm run dev
+* cd Frontend
+* npm run dev
 
 Open browser at the URL shown - http://localhost:3000.
 
 ## Build for Production
-npm run build
+* cd Frontend
+* npm run build
 
 This generates a dist/folder with optimized static files.
 
@@ -110,11 +111,10 @@ This ensures authors can drag-and-drop Banner components into the banner placeho
 
 <img width="251" height="333" alt="image" src="https://github.com/user-attachments/assets/6b283d4c-8798-4755-952d-c7f160bee7aa" />
 
-
 ## Exposing Content via JSS API
 
 Layout Service (REST) Endpoint:
-https://<sitecore-host>/sitecore/api/layout/render/jss?item=/home&sc_lang=en
+https://<<sitecore-host>>/sitecore/api/layout/render/jss?item=/home&sc_lang=en
 
 # 3. Backend (SPA)
 
@@ -127,6 +127,8 @@ Minimalist Spring Boot microservice that serves an in-memory list of products vi
 
 ## How to run
 
+* cd Backend
+
 * Build: mvn clean package
 * Run: mvn spring-boot:run
 * API: GET http://localhost:8080/products
@@ -136,7 +138,7 @@ Minimalist Spring Boot microservice that serves an in-memory list of products vi
 # 4. Containerization
 - Single command starts the full stack.
 - Clear separation of services.
-- Reasonable ports: 3000 (frontend), 8080 (backend), 1337 (CMS).
+- Reasonable ports: 3000 (frontend), 8080 (backend), 80 (CMS).
 
 ## Directory Layout 
 <img width="669" height="165" alt="image" src="https://github.com/user-attachments/assets/cc17eef6-2cb5-4474-bfbd-97d4541af233" />
@@ -144,7 +146,6 @@ Minimalist Spring Boot microservice that serves an in-memory list of products vi
 ## How It Works
 - Frontend: React app built and served via Nginx on port 3000.
 - Backend: Spring Boot API exposed on port 8080.
-- CMS: Strapi running on port 1337, with persistent volume cms-data.
  
 Environment variables (REACT_APP_API_URL, REACT_APP_CMS_URL) ensure the frontend knows where to fetch data
 ## Run the stack
@@ -152,6 +153,6 @@ docker-compose up --build
 
 - Frontend → http://localhost:3000
 - Backend → http://localhost:8080/products
-- CMS → http://localhost:1337
+- CMS → http://localhost
 
 
