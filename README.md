@@ -2,17 +2,16 @@
 Design and implement a modern frontend experience backed by a headless CMS and a microservice-based backend
 
 # Application Architecture
-<img width="985" height="414" alt="image" src="https://github.com/user-attachments/assets/8cfa5700-24dc-48d9-9f29-5c76f6dd5c30" />
+
+<img width="907" height="321" alt="image" src="https://github.com/user-attachments/assets/9f700815-4b5b-44dd-b60e-05531b1b58f2" />
 
    1. <b>Frontend SPA</b> - Node Js, React Js , NPX web server hosted in docker container 
    2. <b>Backend API Microservices</b> - JAVA Sprint Boot Services , hosted in docker containers with autoscaling.
-   3. <b>Redis Cache</b> - Static data being cached into Redis Cache.
-   4. <b>CMS - Sitecore XP JSS </b> Headless Services  APIs enables Content as Service, hosted in Docker containers with autoscaling as part of Sitecore Containers hosted platform.  
-   5. <b>Azure CDN </b> Sitecore Headless API service responses are cached on Azure CDN </b> for improving performance on content delivery  
-   6. <b>Azure APIM </b> Backend API as well as CDN URLs are added as Backend services in Azure API Management - It enables API Gateway with additonal security , scalability and performance.
-   7. Frontend SPA application connects Azure APIM APIs. APIM APIs routes the traffic to Backend API.
+   4. <b>Sitecore XM Cloud</b> - SaaS CMS with required performance and scability is in built.  
+   5. <b>Experience Edge JSS for XM Cloud</b> Default CDN, OAUTH security enabled.  
+   6. <b>Azure APIM </b> Backend API is added as Backend services in Azure API Management - It enables API Gateway with caching, security , scalability and performance.
+   7. Frontend SPA application connects Azure APIM APIs for Data, Experience Edge API for Content. Azure APIM APIs routes the traffic to Backend API.
       
-
 # 1. Frontend (SPA)
   Build a Single Page Application (SPA) using React JS:
    1. Fetch and display product data from the backend REST API
