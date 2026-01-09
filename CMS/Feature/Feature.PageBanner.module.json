@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.sitecore.com/xmcloud/module/1.0/module.schema.json",
+  "namespace": "Feature.PageBanner",
+  "items": [
+    {
+      "path": "templates/Page.yml",
+      "type": "Template"
+    },
+    {
+      "path": "templates/Banner.yml",
+      "type": "Template"
+    },
+    {
+      "path": "renderings/Banner.yml",
+      "type": "Rendering"
+    },
+    {
+      "path": "placeholders/banner.yml",
+      "type": "PlaceholderSettings"
+    }
+  ]
+}
