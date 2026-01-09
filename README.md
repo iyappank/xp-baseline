@@ -63,13 +63,28 @@ This generates a dist/folder with optimized static files.
 To preview:
 npm run preview
 
-# 2. Sitecore Headless CMS - Content Model
+# 2. Sitecore XM Cloud - Content Model
 
 - <b>Page template</b> defines metadata and placeholders.
 - <b>Banner template</b> defines reusable fields (Heading, Image, CTA).
 - <b>Rendering definition</b> ties Banner to JSS.
 - <b>Placeholder settings allow</b> authors to drag-and-drop Banner into Pages.
 - <b>JSS Layout Service</b> exposes content for headless consumption.
+
+## Summary of Tools
+**XM Cloud Content Editor:** For initial item creation and cloning.
+
+**Sitecore CLI:** For serializing items (ser pull/ser push) and managing deployments.
+
+**XM Cloud Deploy:** The SaaS interface for managing environment-wide deployments and infrastructure
+
+## 1. Create Renderings and Templates in XM Cloud Content Editor 
+
+**Templates:** Navigate to /sitecore/Templates/Project and create your data templates 
+
+**Renderings:** Create JSON Renderings under /sitecore/layout/Renderings/Project. It is highly recommended to use the Clone Rendering script on existing Headless Experience Accelerator (SXA) components to automatically scaffold the necessary parameters and data source templates.
+
+**Scaffolding:** Use Headless Modules to bundle these items, which allows you to "install" them into specific sites easily. 
 
 ## Page Template
 
@@ -107,16 +122,35 @@ Controls which components can be dropped into placeholders.
 - Allowed Controls: Banner rendering (and optionally Hero, Carousel, etc.)
 This ensures authors can drag-and-drop Banner components into the banner placeholder in Experience Editor/Horizon.
 
+## 2. Serialize Items for Code Integration 
+
+**Configure SCS:** Use the Sitecore CLI to create a serialization module (e.g., MyProject.module.json) that points to your new rendering and template paths.
+
+**Pull Items:** Run dotnet sitecore ser pull to download the items from the XM Cloud CM instance to your local repository.
+
+**Commit to Source Control:** Push the generated .yml files to your connected GitHub or Azure DevOps repository. 
+
+
 ## Sitecore Feature Component 
 
-<img width="251" height="333" alt="image" src="https://github.com/user-attachments/assets/6b283d4c-8798-4755-952d-c7f160bee7aa" />
+<img width="407" height="225" alt="image" src="https://github.com/user-attachments/assets/62403665-39c7-40b5-9343-b7788daa2b92" />
 
-## Exposing Content via JSS API
+## 3. Deploy via XM Cloud Deploy App 
+
+The XM Cloud Deploy App automates the final deployment to your environments. 
+
+**Automatic Trigger:** If "Auto deploy on push" is enabled, pushing your serialized items to the main branch triggers a build.
+
+**Build & Sync:** The XM Cloud build server pulls the source code, builds the solution, and uses SCS to "push" (sync) the serialized renderings and templates into the provisioned CM instance.
+
+**Manual Deployment:** You can also trigger deployments manually via the Deploy App UI or the Sitecore CLI using dotnet sitecore cloud deployment create.
+
+## Experience Edge JSS API
 
 Layout Service (REST) Endpoint:
 https://<<sitecore-host>>/sitecore/api/layout/render/jss?item=/home&sc_lang=en
 
-# 3. Backend (SPA)
+# 3. Backend - Micro Services
 
 Minimalist Spring Boot microservice that serves an in-memory list of products via GET /products, includes OpenAPI/Swagger, error handling, and basic tests.
 
@@ -170,6 +204,5 @@ docker-compose up --build
 
 - Frontend → http://localhost:3000
 - Backend → http://localhost:8080/products
-- CMS → http://localhost
 
 
