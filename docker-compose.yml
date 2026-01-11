@@ -2,31 +2,35 @@ version: "3.9"
 
 services:
   frontend:
-    build: ./frontend   # React app Dockerfile
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: frontend
-    ports:
-      - "3000:80"       # Expose React build via Nginx
-    depends_on:
+    depends_on: 
       - backend
-      - cms
+    ports:
+      - "3000:80"   # Access app at http://localhost:3000
+    restart: always  
     environment:
       - REACT_APP_API_URL=http://localhost:8080/products
       - REACT_APP_CMS_URL=http://localhost/home
 
   backend:
-    build: ./Backend    # Spring Boot Dockerfile
-    container_name: backend
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
+    deploy:
+      replicas: 2        # autoscaling: run 2 containers
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - SERVER_PORT=8080
 
-  cms:
-    build: ./CMS    # cms Dockerfile
-    container_name: cms
-    ports:
-      - "80:80"
-    volumes:
-      - ./cms-data:/srv/app
    
