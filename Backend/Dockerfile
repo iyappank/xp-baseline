@@ -4,7 +4,7 @@ WORKDIR /Backend
 
 # Copy pom.xml and source code
 COPY pom.xml .
-COPY src ./src
+COPY . .
 
 # Compile and package
 RUN mvn clean package -DskipTests
